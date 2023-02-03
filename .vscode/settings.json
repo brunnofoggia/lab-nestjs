@@ -1,0 +1,36 @@
+{
+    "rest-client.environmentVariables": {
+        "$shared": {
+            "version": "v1",
+            "contentType": "application/json"
+        },
+        "local": {
+            "url": "http://localhost:3001",
+        },
+        "vm": {
+            "url": "http://ubuntu:3001",
+        },
+    },
+    "editor.formatOnSave": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "[json]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[typescript]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": true
+        },
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[javascript]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": true
+        },
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "typescript.preferences.quoteStyle": "single",
+    "javascript.preferences.quoteStyle": "single",
+}

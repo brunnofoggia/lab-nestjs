@@ -1,0 +1,5 @@
+@path = /notification
+
+### Find by cycleId
+GET {{url}}{{path}}/1
+Authorization: Bearer {{$dotenv JWT}}

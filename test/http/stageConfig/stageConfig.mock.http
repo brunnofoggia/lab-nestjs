@@ -1,0 +1,77 @@
+@path = /stage_config
+
+### Count
+GET {{url}}{{path}}/count
+Authorization: Bearer {{$dotenv JWT}}
+
+### Find all
+GET {{url}}{{path}}
+Authorization: Bearer {{$dotenv JWT}}
+
+### Find schedule
+GET {{url}}{{path}}/schedule
+Authorization: Bearer {{$dotenv JWT}}
+
+### Find schedule by config
+POST {{url}}{{path}}/scheduleByConfig
+Content-Type: {{contentType}}
+Authorization: Bearer {{$dotenv JWT}}
+
+{
+    "hour": 21
+}
+
+### Create new
+POST {{url}}{{path}} HTTP/2
+Content-Type: {{contentType}}
+Authorization: Bearer {{$dotenv JWT}}
+
+{
+    "cycleConfigId": "1",
+    "handlerPath": "m9/fiab/imp",
+    "stageUid":  "m9_imp",
+    "order": "0",
+    "triggerUid": "S",
+    "triggerConfig": {
+        "hour": 21
+    }
+}
+
+### Create new
+POST {{url}}{{path}} HTTP/2
+Content-Type: {{contentType}}
+Authorization: Bearer {{$dotenv JWT}}
+
+{
+    "cycleConfigId": "1",
+    "handlerPath": "m9/fiab/conv",
+    "stageUid":  "m9_conv_imp",
+    "inputCycleUid": "m9",
+    "inputStageUid": "m9_imp",
+    "order": "1"
+}
+
+### Get a item
+# @prompt id
+GET {{url}}{{path}}/{{id}} HTTP/2
+Authorization: Bearer {{$dotenv JWT}}
+
+### Get a item
+# @prompt id
+GET {{url}}{{path}}/find_deep/{{id}} HTTP/2
+Authorization: Bearer {{$dotenv JWT}}
+
+### Update
+# @prompt id
+PUT {{url}}{{path}}/{{id}} HTTP/2
+Content-Type: {{contentType}}
+Authorization: Bearer {{$dotenv JWT}}
+
+{
+    "handlerPath": "FiabConvCsv"
+}
+
+### Delete
+# @prompt id
+DELETE {{url}}{{path}}/{{id}} HTTP/1.1
+Authorization: Bearer {{$dotenv JWT}}

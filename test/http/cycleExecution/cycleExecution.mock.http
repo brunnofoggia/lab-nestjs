@@ -1,0 +1,37 @@
+@path = /cycle_execution
+
+### Count
+GET {{url}}{{path}}/count
+Authorization: Bearer {{$dotenv JWT}}
+
+### Get all
+GET {{url}}{{path}}
+Authorization: Bearer {{$dotenv JWT}}
+
+### Create new
+POST {{url}}{{path}} HTTP/2
+Content-Type: {{contentType}}
+Authorization: Bearer {{$dotenv JWT}}
+
+{
+    "cycleConfigId": "1",
+    "companyUid": "teste1"
+}
+
+### Get a item
+# @prompt id
+GET {{url}}{{path}}/{{id}} HTTP/2
+Authorization: Bearer {{$dotenv JWT}}
+
+### Get deep item
+# @prompt id
+GET {{url}}{{path}}/find_deep/{{id}} HTTP/2
+Authorization: Bearer {{$dotenv JWT}}
+
+### Delete
+# @prompt id
+DELETE {{url}}{{path}}/{{id}} HTTP/2
+Authorization: Bearer {{$dotenv JWT}}
+
+### Find deep by date
+GET {{url}}{{path}}/find_deep_by_date/2023-01-10/-00 HTTP/2

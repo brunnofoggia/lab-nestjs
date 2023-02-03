@@ -1,0 +1,39 @@
+@path = /stage_execution
+
+### Count
+GET {{url}}{{path}}/count
+Authorization: Bearer {{$dotenv JWT}}
+
+### Get all
+GET {{url}}{{path}}
+Authorization: Bearer {{$dotenv JWT}}
+
+### Create new
+POST {{url}}{{path}} HTTP/2
+Content-Type: {{contentType}}
+Authorization: Bearer {{$dotenv JWT}}
+
+{
+    "cycleExecutionId": 1,
+    "stageConfigId": 1
+}
+
+### Get a item
+# @prompt id
+GET {{url}}{{path}}/{{id}} HTTP/2
+Authorization: Bearer {{$dotenv JWT}}
+
+### Update
+# @prompt id
+PUT {{url}}{{path}}/{{id}} HTTP/2
+Content-Type: {{contentType}}
+Authorization: Bearer {{$dotenv JWT}}
+
+{
+    "handler": "input"
+}
+
+### Delete
+# @prompt id
+DELETE {{url}}{{path}}/{{id}} HTTP/1.1
+Authorization: Bearer {{$dotenv JWT}}
